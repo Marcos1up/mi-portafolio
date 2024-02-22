@@ -12,9 +12,9 @@ import {
   VStack,
   useToast,
 } from "@chakra-ui/react";
-import profileImg from "../assets/images/logo-MS.png";
 
 //importaciones estilizadas
+import profileImg from "../assets/images/avatar-profile.png";
 import {
   FaLinkedin,
   FaGithub,
@@ -41,7 +41,6 @@ export default function Hero() {
         setIsCopied(true);
         toast({
           title: "Correo electrónico copiado.",
-          description: "El correo electrónico ha sido copiado al portapapeles.",
           status: "success",
           duration: 2000,
           isClosable: true,
@@ -77,28 +76,27 @@ export default function Hero() {
 
       <HStack className="links-container" {...linksContainer}>
         <Link href={githubUrl} isExternal>
-          <Button colorScheme="blackAlpha" variant="outline">
-            <Icon as={FaGithub} />
+          <Button {...buttonProps}>
+            <FaGithub />
           </Button>
         </Link>
 
         <Link href={linkedInUrl} isExternal>
-          <Button colorScheme="blackAlpha" variant="outline">
-            <Icon as={FaLinkedin} />
+          <Button {...buttonProps}>
+            <FaLinkedin />
           </Button>
         </Link>
 
         <Link href={instagramUrl} isExternal>
-          <Button colorScheme="blackAlpha" variant="outline">
-            <Icon as={FaInstagram} />
+          <Button {...buttonProps}>
+            <FaInstagram />
           </Button>
         </Link>
 
         <Button
           id="copy-button"
           onClick={copyToClipboard}
-          colorScheme="blackAlpha"
-          variant="outline"
+          {...(isCopied ? copyButtonProps : buttonProps)}
         >
           <Icon as={isCopied ? FaCheckCircle : MdAttachEmail} />
         </Button>
@@ -110,7 +108,7 @@ export default function Hero() {
 //estilos del componente
 const heroContainer = {
   position: "absolute",
-  top: "0.2%",
+  top: "0.5%",
   justifyContent: "center",
   alignItems: "center",
 };
@@ -122,10 +120,11 @@ const imageProps = {
   borderRadius: "30px",
   objectFit: "cover",
   padding: "0.5rem",
+  boxShadow: "0px -10px 10px 0 rgba(0, 0, 0, 0.1)",
 };
 
 const headingProps = {
-  color: "var(--text-100)",
+  color: "var(--accent-100)",
   fontFamily: ["Helvetica Neue", "sans-serif"],
   fontSize: "1.5rem",
   letterSpacing: ".2rem",
@@ -135,7 +134,7 @@ const headingProps = {
 };
 
 const textProps = {
-  color: "var(--text-200)",
+  color: "var(--accent-200)",
   fontFamily: "Roboto",
   letterSpacing: ".2rem",
   fontSize: "1rem",
@@ -144,3 +143,17 @@ const textProps = {
 };
 
 const linksContainer = {};
+
+const buttonProps = {
+  colorScheme: "blackAlpha",
+  variant: "outline",
+  _hover: {
+    borderColor: "var(--primary-200)",
+    color: "var(--primary-200)",
+  },
+};
+
+const copyButtonProps = {
+  colorScheme: "green",
+  variant: "solid",
+};

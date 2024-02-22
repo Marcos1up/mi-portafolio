@@ -26,9 +26,7 @@ export default function App() {
           </Flex>
 
           <Flex className="contact" mt="1rem">
-            <Button colorScheme="teal" variant="outline" {...contactButton}>
-              Contactame!
-            </Button>
+            <Button {...contactButton}>Contactame!</Button>
           </Flex>
         </VStack>
       </Flex>
@@ -56,12 +54,13 @@ const appContainer = {
 
 const mainContainer = {
   zIndex: "10",
-  borderRadius: "30px",
   bg: "var(--bg-200)",
+  borderRadius: "30px",
+  boxShadow: "0 0 10px rgba(0, 0, 0, 0.1)",
   p: " 1rem 1.5rem 1rem 1.5rem",
   mt: "4rem",
-  h: "80%",
-  w: "40%",
+  h: "88%",
+  w: "570px",
   justifyContent: "center",
   alignItems: "center",
   flexDirection: "column",
@@ -93,35 +92,47 @@ const navbarContainer = {
 };
 
 const contentRenderContainer = {
-  bg: "var(--bg-300)",
-  h: "100%",
-  maxH: "235px",
-  w: "100%",
-  p: ".5rem",
   justifyContent: "center",
   alignItems: "center",
   flexDirection: "column",
+  border: "2px solid #f2f6f5",
+  borderRadius: "0.5rem",
+  boxShadow: "inset 0px 0px 10px 0px rgba(0, 0, 0, 0.1)",
+  h: "100%",
+  maxH: "265px",
+  minH: "3rem",
+  w: "100%",
+  p: "1rem",
   overflowY: "auto",
   sx: {
-    overflowY: "auto", // Permitir desplazamiento vertical si es necesario
+    overflowY: "auto",
     "&::-webkit-scrollbar": {
-      width: "13px",
-      borderRadius: "8px",
-      backgroundColor: `rgba(0, 0, 0, .1)`, // Color de fondo del scrollbar
+      width: "0.5rem",
+      height: "0.5rem",
+      borderRadius: "9.99rem",
+      backgroundColor: `#f2f6f5`,
     },
     "&::-webkit-scrollbar-thumb": {
-      borderRadius: "8px",
-      backgroundColor: `var(--accent-100)`, // Color del thumb del scrollbar
-      border: "4px solid var(--bg-300)", // Borde del thumb, mismo color que el fondo para efecto "invisible"
+      borderRadius: "9.99rem",
+      backgroundColor: `var(--primary-400)`,
     },
   },
 };
 
 const contactButton = {
   bg: "var(--primary-100)",
+  borderRadius: "1rem",
   color: "var(--text-100)",
+  fontSize: "1rem",
+  fontWeight: "600",
+  border: "none",
+  width: "100%",
+  minH: "3rem",
+  padding: "0.5rem 2.5rem",
+  boxShadow: "0 0 10px rgba(0, 0, 0, 0.1)",
+  transition: "all 0.3s",
   _hover: {
-    bg: "var(--accent-100)",
+    bg: "var(--primary-200)",
   },
 };
 
@@ -210,6 +221,7 @@ const shapeTriangleChild2 = {
 
 /* 
 Background
+  --bg-gradient: radial-gradient(at center, #080808, #010101);
   --bg-100:#000000; rgb(0, 0, 0) (principal)
   --bg-200:#161616; rgb(22, 22, 22)
   --bg-300:#2c2c2c; rgb(44, 44, 44)

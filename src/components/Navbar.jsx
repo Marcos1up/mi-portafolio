@@ -6,33 +6,16 @@ export default function Navbar() {
   //const [selected, setSelected] = useState("");
 
   return (
-    <HStack className="navbar-container">
-      <Button
-        className="about-route"
-        colorScheme="blackAlpha"
-        variant="outline"
-      >
+    <HStack className="navbar-container" {...navbarContainer}>
+      <Button className="about-route" {...navbarButton}>
         Sobre mí
       </Button>
-      <Button
-        className="skills-route"
-        colorScheme="blackAlpha"
-        variant="outline"
-      >
+
+      <Button className="skills-route" {...navbarButton}>
         Habilidades
       </Button>
-      <Button
-        className="experience-route"
-        colorScheme="blackAlpha"
-        variant="outline"
-      >
-        Experiencia
-      </Button>
-      <Button
-        className="projects-route"
-        colorScheme="blackAlpha"
-        variant="outline"
-      >
+
+      <Button className="projects-route" {...navbarButton}>
         Projectos
       </Button>
     </HStack>
@@ -40,3 +23,6 @@ export default function Navbar() {
 }
 
 //estilos del componente
+const navbarContainer = {};
+
+const navbarButton = { colorScheme: "blackAlpha", variant: "outline" };

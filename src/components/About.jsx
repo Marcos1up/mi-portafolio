@@ -3,7 +3,7 @@ import { HStack, Text, VStack } from "@chakra-ui/react";
 
 export default function About() {
   return (
-    <HStack className="about-container">
+    <HStack className="about-container" mt="2rem">
       <VStack>
         <Text>
           Me llamo Marcos Soria, un apasionado desarrollador de software con
