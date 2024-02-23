@@ -74,7 +74,7 @@ export default function Hero() {
         <Text {...textProps}>BackEnd/FullStack Developer</Text>
       </Box>
 
-      <HStack className="links-container" {...linksContainer}>
+      <HStack className="links-container">
         <Link href={githubUrl} isExternal>
           <Button {...buttonProps}>
             <FaGithub />
@@ -141,8 +141,6 @@ const textProps = {
   textAlign: "center",
   m: "0 0 1rem 0 ",
 };
-
-const linksContainer = {};
 
 const buttonProps = {
   colorScheme: "blackAlpha",

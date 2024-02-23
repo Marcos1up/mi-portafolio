@@ -5,6 +5,7 @@ import { Box, Button, Flex, HStack, VStack } from "@chakra-ui/react";
 import Hero from "./components/Hero";
 import Navbar from "./components/Navbar";
 import About from "./components/About";
+import Projects from "./components/Projects";
 
 //componentes lazyload
 
@@ -23,6 +24,7 @@ export default function App() {
 
           <Flex className="content-render" {...contentRenderContainer}>
             <About />
+            <Projects />
           </Flex>
 
           <Flex className="contact" mt="1rem">
@@ -92,7 +94,7 @@ const navbarContainer = {
 };
 
 const contentRenderContainer = {
-  justifyContent: "center",
+  justifyContent: "flex-start",
   alignItems: "center",
   flexDirection: "column",
   border: "2px solid #f2f6f5",
