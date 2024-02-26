@@ -16,7 +16,7 @@ export default function Navbar() {
       </Button>
 
       <Button className="projects-route" {...navbarButton}>
-        Projectos
+        Proyectos
       </Button>
     </HStack>
   );

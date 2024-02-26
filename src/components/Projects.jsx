@@ -8,10 +8,11 @@ import {
   Text,
   VStack,
 } from "@chakra-ui/react";
-import exampleImg from "../assets/images/image-404.png";
 
 //importaciones estilizadas
 import { FaGithub, FaLink } from "react-icons/fa";
+import exampleImg from "../assets/images/image-404.png";
+import heladitosApp from "../assets/images/heladitosapp-img.png";
 
 export default function Projects() {
   return (
@@ -45,7 +46,7 @@ export default function Projects() {
       </HStack>
 
       <HStack className="HeladitosApp-card" {...cardProps}>
-        <Image src={exampleImg} alt="Project image" {...imageProps}></Image>
+        <Image src={heladitosApp} alt="Project image" {...imageProps}></Image>
         <VStack {...infoContainer}>
           <Heading {...titleStyles}>Heladitos App</Heading>
 
@@ -117,8 +118,13 @@ const cardProps = {
   maxH: "200px",
   p: "1rem",
   borderRadius: "30px",
-  overflow: "hiden",
-  justfy: "space-between",
+  overflow: "hidden",
+  justify: "space-between",
+  _hover: {
+    transform: "scale(1.05)", //tamaño del card al 105%
+    transition: "transform 0.2s ease-in-out", //transición mas suave
+  },
+  transition: "transform 0.2s ease-in-out", //transición suaveal estado original
 };
 
 const infoContainer = {

@@ -55,7 +55,7 @@ export default function Hero() {
           description: "No se pudo copiar el correo electrónico.",
           status: { err },
           duration: 2000,
-          isClosable: true,
+          isClosable: false,
         });
       });
   };
@@ -139,7 +139,7 @@ const textProps = {
   letterSpacing: ".2rem",
   fontSize: "1rem",
   textAlign: "center",
-  m: "0 0 1rem 0 ",
+  mb: "1rem",
 };
 
 const buttonProps = {

@@ -1,15 +1,19 @@
 //importaciones externas
-import { Box, Button, Flex, HStack, VStack } from "@chakra-ui/react";
+import { Box, Button, Flex, HStack, Link, VStack } from "@chakra-ui/react";
 
 //importar components
 import Hero from "./components/Hero";
 import Navbar from "./components/Navbar";
 import About from "./components/About";
 import Projects from "./components/Projects";
+import Skills from "./components/Skills";
 
 //componentes lazyload
 
 export default function App() {
+  const cvLink =
+    "https://drive.google.com/file/d/1GQvOBiWfoJ3MEtSB7UqMNV80OKRpeKFb/view?usp=drive_link";
+
   return (
     <VStack className="app-container" {...appContainer}>
       <Flex className="main-container" {...mainContainer}>
@@ -25,10 +29,14 @@ export default function App() {
           <Flex className="content-render" {...contentRenderContainer}>
             <About />
             <Projects />
+            <Skills />
           </Flex>
 
-          <Flex className="contact" mt="1rem">
+          <Flex className="contact" mt="1rem" gap=".5rem">
             <Button {...contactButton}>Contactame!</Button>
+            <Link href={cvLink} isExternal>
+              <Button {...contactButton}>CV</Button>
+            </Link>
           </Flex>
         </VStack>
       </Flex>
@@ -62,7 +70,7 @@ const mainContainer = {
   p: " 1rem 1.5rem 1rem 1.5rem",
   mt: "4rem",
   h: "88%",
-  w: "570px",
+  maxW: "570px",
   justifyContent: "center",
   alignItems: "center",
   flexDirection: "column",
@@ -128,7 +136,8 @@ const contactButton = {
   fontSize: "1rem",
   fontWeight: "600",
   border: "none",
-  width: "100%",
+  w: "150px",
+  minW: "115px",
   minH: "3rem",
   padding: "0.5rem 2.5rem",
   boxShadow: "0 0 10px rgba(0, 0, 0, 0.1)",
