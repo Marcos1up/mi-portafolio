@@ -17,6 +17,10 @@ import heladitosApp from "../assets/images/heladitosapp-img.png";
 export default function Projects() {
   return (
     <VStack id="projects" className="projects-container" {...projectsContainer}>
+      <Heading as="h1" className="proyects-title" {...titleStylesProps}>
+        💻 Proyectos
+      </Heading>
+
       <HStack className="AlPaso-card" {...cardProps}>
         <Image src={exampleImg} alt="Project image" {...imageProps}></Image>
         <VStack {...infoContainer}>
@@ -112,6 +116,16 @@ const projectsContainer = {
   gap: "1rem",
 };
 
+const titleStylesProps = {
+  color: "var(--accent-100)",
+  fontFamily: ["Helvetica Neue", "sans-serif"],
+  fontSize: "1.5rem",
+  letterSpacing: ".2rem",
+  textAlign: "start",
+  lineHeight: "1",
+  mt: ".5rem",
+};
+
 const cardProps = {
   bg: "#f2f6f5",
   h: "200px",
@@ -122,7 +136,7 @@ const cardProps = {
   justify: "space-between",
   _hover: {
     transform: "scale(1.05)", //tamaño del card al 105%
-    transition: "transform 0.2s ease-in-out", //transición mas suave
+    transition: "transform 0.1s ease-in-out", //transición mas suave
   },
   transition: "transform 0.2s ease-in-out", //transición suaveal estado original
 };

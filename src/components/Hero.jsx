@@ -74,7 +74,7 @@ export default function Hero() {
         <Text {...textProps}>BackEnd/FullStack Developer</Text>
       </Box>
 
-      <HStack className="links-container">
+      <HStack className="links-container" {...linksContainer}>
         <Link href={githubUrl} isExternal>
           <Button {...buttonProps}>
             <FaGithub />
@@ -107,13 +107,14 @@ export default function Hero() {
 
 //estilos del componente
 const heroContainer = {
-  position: "absolute",
-  top: "0.5%",
   justifyContent: "center",
   alignItems: "center",
 };
 
 const imageProps = {
+  position: "absolute",
+  top: "0.5%",
+
   bg: "var(--bg-200)",
   width: "150px",
   height: "150px",
@@ -130,7 +131,7 @@ const headingProps = {
   letterSpacing: ".2rem",
   textAlign: "center",
   lineHeight: "1",
-  m: "0",
+  mt: "5rem",
 };
 
 const textProps = {
@@ -140,6 +141,10 @@ const textProps = {
   fontSize: "1rem",
   textAlign: "center",
   mb: "1rem",
+};
+
+const linksContainer = {
+  display: { base: "none", md: "flex" },
 };
 
 const buttonProps = {

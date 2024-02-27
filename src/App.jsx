@@ -1,4 +1,5 @@
 //importaciones externas
+import { useState } from "react";
 import { Box, Button, Flex, HStack, Link, VStack } from "@chakra-ui/react";
 
 //importar components
@@ -14,6 +15,20 @@ export default function App() {
   const cvLink =
     "https://drive.google.com/file/d/1GQvOBiWfoJ3MEtSB7UqMNV80OKRpeKFb/view?usp=drive_link";
 
+  const [activeComponent, setActiveComponent] = useState("About");
+  const renderComponent = () => {
+    switch (activeComponent) {
+      case "About":
+        return <About />;
+      case "Skills":
+        return <Skills />;
+      case "Projects":
+        return <Projects />;
+      default:
+        return <About />;
+    }
+  };
+
   return (
     <VStack className="app-container" {...appContainer}>
       <Flex className="main-container" {...mainContainer}>
@@ -23,19 +38,26 @@ export default function App() {
 
         <VStack className="content-container" {...contentContainer}>
           <HStack className="navbar" {...navbarContainer}>
-            <Navbar />
+            <Navbar setActiveComponent={setActiveComponent} />
           </HStack>
 
-          <Flex className="content-render" {...contentRenderContainer}>
-            <About />
-            <Projects />
-            <Skills />
+          <Flex className="content-render">
+            <Flex {...contentRenderContainer}>{renderComponent()}</Flex>
+            <Flex {...contentSm}>
+              <About />
+              <Skills />
+              <Projects />
+            </Flex>
           </Flex>
 
-          <Flex className="contact" mt="1rem" gap=".5rem">
-            <Button {...contactButton}>Contactame!</Button>
+          <Flex className="contact" {...contactContainer}>
+            <Button {...contactButton} borderRadius="1rem 0 0 1rem">
+              Contactame!
+            </Button>
             <Link href={cvLink} isExternal>
-              <Button {...contactButton}>CV</Button>
+              <Button {...contactButton} borderRadius="0 1rem 1rem 0">
+                CV
+              </Button>
             </Link>
           </Flex>
         </VStack>
@@ -65,23 +87,24 @@ const appContainer = {
 const mainContainer = {
   zIndex: "10",
   bg: "var(--bg-200)",
-  borderRadius: "30px",
+  borderRadius: { base: "0", sm: "0", md: "30px" },
   boxShadow: "0 0 10px rgba(0, 0, 0, 0.1)",
-  p: " 1rem 1.5rem 1rem 1.5rem",
-  mt: "4rem",
-  h: "88%",
-  maxW: "570px",
+  p: { base: "1rem", md: "1.5rem" },
+  mt: { base: "4rem", md: "4rem" },
+  h: { base: "88%", sm: "88%", md: "88%" },
+  maxW: { base: "372px", sm: "570px" },
   justifyContent: "center",
   alignItems: "center",
   flexDirection: "column",
+  transition: "all 0.3s",
 };
 
 const heroContainer = {
-  h: "50%",
+  h: { base: "auto", md: "50%" },
   flexDirection: "column",
   justifyContent: "center",
   alignItems: "center",
-  mb: "1.5rem",
+  mb: { base: "0", md: "1.5rem" },
 };
 
 const contentContainer = {
@@ -95,6 +118,7 @@ const contentContainer = {
 };
 
 const navbarContainer = {
+  display: { base: "none", md: "flex" },
   flexDirection: "column",
   justifyContent: "center",
   alignItems: "center",
@@ -102,6 +126,8 @@ const navbarContainer = {
 };
 
 const contentRenderContainer = {
+  display: { base: "none", sm: "flex" },
+
   justifyContent: "flex-start",
   alignItems: "center",
   flexDirection: "column",
@@ -109,11 +135,12 @@ const contentRenderContainer = {
   borderRadius: "0.5rem",
   boxShadow: "inset 0px 0px 10px 0px rgba(0, 0, 0, 0.1)",
   h: "100%",
-  maxH: "265px",
+  maxH: { base: "378px", sm: "335px", md: "265px" },
   minH: "3rem",
   w: "100%",
   p: "1rem",
   overflowY: "auto",
+  transition: "all 0.3s",
   sx: {
     overflowY: "auto",
     "&::-webkit-scrollbar": {
@@ -129,21 +156,55 @@ const contentRenderContainer = {
   },
 };
 
+const contentSm = {
+  display: { base: "flex", sm: "none" },
+
+  justifyContent: "flex-start",
+  alignItems: "center",
+  flexDirection: "column",
+  border: "2px solid #f2f6f5",
+  borderRadius: "0.5rem",
+  boxShadow: "inset 0px 0px 10px 0px rgba(0, 0, 0, 0.1)",
+  h: "100%",
+  maxH: { base: "378px", sm: "335px", md: "265px" },
+  minH: "3rem",
+  w: "100%",
+  p: "1rem",
+  overflowY: "auto",
+  transition: "all 0.3s",
+  sx: {
+    overflowY: "auto",
+    "&::-webkit-scrollbar": {
+      width: "0.5rem",
+      height: "0.5rem",
+      borderRadius: "9.99rem",
+      backgroundColor: `#f2f6f5`,
+    },
+    "&::-webkit-scrollbar-thumb": {
+      borderRadius: "9.99rem",
+      backgroundColor: `var(--primary-400)`,
+    },
+  },
+};
+
+const contactContainer = {
+  m: { base: ".5rem 0 .5rem 0", md: "1rem 0 1rem 0" },
+};
+
 const contactButton = {
-  bg: "var(--primary-100)",
-  borderRadius: "1rem",
+  bg: "var(--primary-200)",
   color: "var(--text-100)",
-  fontSize: "1rem",
+  fontSize: { base: "0.8rem", md: "1rem" },
   fontWeight: "600",
   border: "none",
-  w: "150px",
+  w: { base: "120px", md: "250px" },
   minW: "115px",
   minH: "3rem",
-  padding: "0.5rem 2.5rem",
+  padding: { base: "0.25rem 1rem", md: "0.5rem 2.5rem" },
   boxShadow: "0 0 10px rgba(0, 0, 0, 0.1)",
   transition: "all 0.3s",
   _hover: {
-    bg: "var(--primary-200)",
+    bg: "var(--primary-300)",
   },
 };
 
@@ -151,7 +212,8 @@ const contactButton = {
 const shapeCircle = {
   position: "absolute",
   top: "65%",
-  left: "15%",
+  left: { base: "1%", md: "15%" },
+  transition: "all 0.3s",
   zIndex: "1",
 
   width: "15rem",
@@ -165,7 +227,8 @@ const shapeCircle = {
 const shapeSquare = {
   position: "absolute",
   top: "30%",
-  right: "10%",
+  right: { base: "-7%", md: "10%" },
+  transition: "all 0.3s",
   zIndex: "1",
   transform: "translate(-50%, -50%) rotate(45deg)", //centrado y rotación
 
@@ -178,8 +241,9 @@ const shapeSquare = {
 };
 
 const shapeTriangle = {
-  top: "11%",
-  left: "10%",
+  top: { base: "5%", md: "11%" },
+  left: { base: "5%", md: "10%" },
+  transition: "all 0.3s",
   zIndex: "1",
 
   position: "absolute",
@@ -204,7 +268,8 @@ const shapeTriangleChild = {
 };
 
 const shapeTriangle2 = {
-  right: "10%",
+  right: { base: "2%", md: "10%" },
+  transition: "all 0.3s",
   top: "80%",
   zIndex: "1",
   transform: " rotate(15deg)",

@@ -1,5 +1,5 @@
 //importaciones externas
-import { Flex, HStack, Heading, Image, VStack } from "@chakra-ui/react";
+import { Flex, HStack, Heading, Image, Text, VStack } from "@chakra-ui/react";
 
 //importaciones estilizadas
 import htmlIcon from "../assets/images/icon-html.png";
@@ -15,10 +15,15 @@ import gitIcon from "../assets/images/icon-git.png";
 export default function Skills() {
   return (
     <VStack className="skills-container" {...skillsContainer}>
-      <Heading {...titleProps}>
-        Mi contenido está enfocado en las ultimas tecnologías y herramientas del
-        desarrollo web. Hecha un vistazo 👨‍💻
-      </Heading>
+      <VStack>
+        <Heading as="h1" className="skills-title" {...titleStylesProps}>
+          📕 Habilidades
+        </Heading>
+        <Text {...titleProps}>
+          Mi contenido está enfocado en las ultimas tecnologías y herramientas
+          del desarrollo web. Hecha un vistazo 👨‍💻
+        </Text>
+      </VStack>
 
       <HStack className="card-html&css" {...cardProps}>
         <Flex {...imagesContainer}>
@@ -82,6 +87,16 @@ const skillsContainer = {
   flexDirection: "column",
   justfy: "space-between",
   gap: ".5rem",
+};
+
+const titleStylesProps = {
+  color: "var(--accent-100)",
+  fontFamily: ["Helvetica Neue", "sans-serif"],
+  fontSize: "1.5rem",
+  letterSpacing: ".2rem",
+  textAlign: "start",
+  lineHeight: "1",
+  mt: ".5rem",
 };
 
 const titleProps = {

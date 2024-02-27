@@ -83,7 +83,7 @@ export default function About() {
 
       <VStack className="experience-container">
         <Heading as="h1" className="experience-title" {...titleStyles}>
-          📕 Experiencia
+          💼 Experiencia
         </Heading>
 
         <HStack className="experience-stepper" p={5}>
