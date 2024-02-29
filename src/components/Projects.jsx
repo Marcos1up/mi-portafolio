@@ -113,24 +113,25 @@ const projectsContainer = {
   display: "flex",
   flexDirection: "column",
   justfy: "space-between",
-  gap: "1rem",
+  gap: { base: ".5rem", md: "1rem" },
 };
 
 const titleStylesProps = {
   color: "var(--accent-100)",
   fontFamily: ["Helvetica Neue", "sans-serif"],
-  fontSize: "1.5rem",
+  fontSize: { base: "1rem", md: "1.5rem" },
   letterSpacing: ".2rem",
   textAlign: "start",
   lineHeight: "1",
   mt: ".5rem",
+  mb: ".5rem",
 };
 
 const cardProps = {
   bg: "#f2f6f5",
   h: "200px",
   maxH: "200px",
-  p: "1rem",
+  p: { base: "1.4rem", md: "1rem" },
   borderRadius: "30px",
   overflow: "hidden",
   justify: "space-between",
@@ -146,6 +147,7 @@ const infoContainer = {
 };
 
 const imageProps = {
+  display: { base: "none", md: "flex" },
   w: "50px",
   m: "10px",
   bg: "var(--bg-200)",
@@ -158,7 +160,7 @@ const imageProps = {
 const titleStyles = {
   color: "var(--accent-100)",
   fontFamily: ["Helvetica Neue", "sans-serif"],
-  fontSize: "1.5rem",
+  fontSize: { base: "1rem", md: "1.5rem" },
   letterSpacing: ".2rem",
   alignSelf: "start",
   lineHeight: "1",
@@ -166,7 +168,7 @@ const titleStyles = {
 
 const textCointainerStyles = {
   color: "var(--accent-100)",
-  fontSize: "13px",
+  fontSize: { base: "10px", md: "13px" },
   overflow: "hiden",
 };
 

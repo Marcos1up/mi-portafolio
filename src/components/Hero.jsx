@@ -116,8 +116,8 @@ const imageProps = {
   top: "0.5%",
 
   bg: "var(--bg-200)",
-  width: "150px",
-  height: "150px",
+  width: { base: "120px", lg: "150px" },
+  height: { base: "120px", lg: "150px" },
   borderRadius: "30px",
   objectFit: "cover",
   padding: "0.5rem",
@@ -131,7 +131,7 @@ const headingProps = {
   letterSpacing: ".2rem",
   textAlign: "center",
   lineHeight: "1",
-  mt: "5rem",
+  mt: { base: "3rem", lg: "5rem" },
 };
 
 const textProps = {
@@ -140,7 +140,7 @@ const textProps = {
   letterSpacing: ".2rem",
   fontSize: "1rem",
   textAlign: "center",
-  mb: "1rem",
+  mb: { base: "1rem", lg: "0" },
 };
 
 const linksContainer = {

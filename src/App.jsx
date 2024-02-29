@@ -43,7 +43,7 @@ export default function App() {
 
           <Flex className="content-render">
             <Flex {...contentRenderContainer}>{renderComponent()}</Flex>
-            <Flex {...contentSm}>
+            <Flex {...contentResponsive}>
               <About />
               <Skills />
               <Projects />
@@ -87,11 +87,11 @@ const appContainer = {
 const mainContainer = {
   zIndex: "10",
   bg: "var(--bg-200)",
-  borderRadius: { base: "0", sm: "0", md: "30px" },
+  borderRadius: { base: "0", md: "30px" },
   boxShadow: "0 0 10px rgba(0, 0, 0, 0.1)",
   p: { base: "1rem", md: "1.5rem" },
   mt: { base: "4rem", md: "4rem" },
-  h: { base: "88%", sm: "88%", md: "88%" },
+  h: { base: "86%", md: "88%" },
   maxW: { base: "372px", sm: "570px" },
   justifyContent: "center",
   alignItems: "center",
@@ -118,7 +118,7 @@ const contentContainer = {
 };
 
 const navbarContainer = {
-  display: { base: "none", md: "flex" },
+  display: { base: "none", lg: "flex" },
   flexDirection: "column",
   justifyContent: "center",
   alignItems: "center",
@@ -126,7 +126,7 @@ const navbarContainer = {
 };
 
 const contentRenderContainer = {
-  display: { base: "none", sm: "flex" },
+  display: { base: "none", lg: "flex" },
 
   justifyContent: "flex-start",
   alignItems: "center",
@@ -135,7 +135,7 @@ const contentRenderContainer = {
   borderRadius: "0.5rem",
   boxShadow: "inset 0px 0px 10px 0px rgba(0, 0, 0, 0.1)",
   h: "100%",
-  maxH: { base: "378px", sm: "335px", md: "265px" },
+  maxH: { base: "378px", sm: "335px", md: "285px" },
   minH: "3rem",
   w: "100%",
   p: "1rem",
@@ -156,8 +156,8 @@ const contentRenderContainer = {
   },
 };
 
-const contentSm = {
-  display: { base: "flex", sm: "none" },
+const contentResponsive = {
+  display: { base: "flex", lg: "none" },
 
   justifyContent: "flex-start",
   alignItems: "center",
@@ -166,7 +166,7 @@ const contentSm = {
   borderRadius: "0.5rem",
   boxShadow: "inset 0px 0px 10px 0px rgba(0, 0, 0, 0.1)",
   h: "100%",
-  maxH: { base: "378px", sm: "335px", md: "265px" },
+  maxH: { base: "360px", sm: "335px", md: "265px" },
   minH: "3rem",
   w: "100%",
   p: "1rem",
@@ -188,7 +188,7 @@ const contentSm = {
 };
 
 const contactContainer = {
-  m: { base: ".5rem 0 .5rem 0", md: "1rem 0 1rem 0" },
+  m: { base: ".5rem 0 .5rem 0", md: "0.5rem 0 1rem 0" },
 };
 
 const contactButton = {
@@ -197,7 +197,7 @@ const contactButton = {
   fontSize: { base: "0.8rem", md: "1rem" },
   fontWeight: "600",
   border: "none",
-  w: { base: "120px", md: "250px" },
+  w: { base: "120px", md: "150px" },
   minW: "115px",
   minH: "3rem",
   padding: { base: "0.25rem 1rem", md: "0.5rem 2.5rem" },

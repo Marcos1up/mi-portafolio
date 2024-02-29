@@ -22,26 +22,19 @@ export default function About() {
       title: "HeladitosApp - Henry Bootcamp.",
       date: "Oct. 2022 - Nov. 2022",
       description:
-        "Lideré el apartado Back-end de un equipo de 8 integrantes en el ",
-      description2:
-        "desarrollo de un e-commerce para el sector alimenticio, usando",
-      description3:
-        " SCRUM con sprints de acuerdo a la fecha de entrega de 4 semanas.",
+        "Lideré el apartado Back-end de un equipo de 8 integrantes en el desarrollo de un e-commerce para el sector alimenticio, usando SCRUM con sprints de acuerdo a la fecha de entrega de 4 semanas.",
     },
     {
       title: "AlPasoApp - Al Paso.",
       date: "Abr. 2023",
       description:
-        "Desarrollo Freelancer de una página de catálogo menú para un ",
-      description2:
-        "negocio local de comida rápida. Se planeaba agregar Back-end",
-      description3: " para transformarlo en un e-commerce, pero fue cancelado.",
+        "Desarrollo Freelancer de una página de catálogo menú para un negocio local de comida rápida. Se planeaba agregar Back-end para transformarlo en un e-commerce, pero fue cancelado.",
     },
 
     {
       title: "Actualmente...",
-      description: "Me encuentro en busqueda constante de proyectos donde ",
-      description2: "pueda seguir aportando mi valor ✨",
+      description:
+        "Me encuentro en busqueda constante de proyectos donde pueda seguir aportando mi valor ✨",
     },
   ];
 
@@ -94,17 +87,11 @@ export default function About() {
                   <StepStatus complete={<StepIcon />} />
                 </StepIndicator>
 
-                <Box flexShrink="0">
+                <Box>
                   <StepTitle color="var(--accent-100)">{step.title}</StepTitle>
                   <StepDescription fontSize="12px">{step.date}</StepDescription>
-                  <StepDescription color="var(--accent-200)">
+                  <StepDescription {...stepperStyles}>
                     {step.description}
-                  </StepDescription>
-                  <StepDescription color="var(--accent-200)">
-                    {step.description2}
-                  </StepDescription>
-                  <StepDescription color="var(--accent-200)" mb="10px">
-                    {step.description3}
                   </StepDescription>
                 </Box>
 
@@ -122,11 +109,12 @@ export default function About() {
 const aboutContainer = {
   display: "flex",
   flexDirection: "column",
+  mb: { base: "0", lg: "5rem" },
 };
 
 const textCointainerStyles = {
   color: "var(--accent-100)",
-  fontSize: "15px",
+  fontSize: { base: "11px", md: "13px" },
 };
 
 const spanStiles = {
@@ -137,7 +125,7 @@ const spanStiles = {
 const titleStyles = {
   color: "var(--accent-100)",
   fontFamily: ["Helvetica Neue", "sans-serif"],
-  fontSize: "1.5rem",
+  fontSize: { base: "1rem", md: "1.5rem" },
   letterSpacing: ".2rem",
   textAlign: "start",
   lineHeight: "1",
@@ -147,7 +135,14 @@ const titleStyles = {
 const stepperContainer = {
   colorScheme: "orange",
   orientation: "vertical",
-  size: "md",
-  height: "300px",
-  gap: "0",
+  size: "sm",
+  height: { base: "auto", lg: "200px" },
+  gap: { base: 2, md: 4 },
+};
+
+const stepperStyles = {
+  display: "block",
+  flexDirection: { base: "column", lg: "column" },
+  color: "var(--accent-200)",
+  fontSize: { base: "10px", md: "12px", lg: "13px" },
 };

@@ -87,12 +87,13 @@ const skillsContainer = {
   flexDirection: "column",
   justfy: "space-between",
   gap: ".5rem",
+  mb: "1rem",
 };
 
 const titleStylesProps = {
   color: "var(--accent-100)",
   fontFamily: ["Helvetica Neue", "sans-serif"],
-  fontSize: "1.5rem",
+  fontSize: { base: "1rem", md: "1.5rem" },
   letterSpacing: ".2rem",
   textAlign: "start",
   lineHeight: "1",
@@ -101,14 +102,14 @@ const titleStylesProps = {
 
 const titleProps = {
   color: "var(--accent-100)",
-  fontSize: "15px",
+  fontSize: { base: "11px", md: "15px" },
   textAlign: "center",
   mb: "1rem",
 };
 
 const cardProps = {
   bg: "#f2f6f5",
-  h: "80px",
+  h: { base: "60px", md: "80px" },
   maxH: "200px",
   minW: "100%",
   p: "1rem",
@@ -127,17 +128,17 @@ const imagesContainer = {
 };
 
 const imgProps = {
-  w: "50%",
+  w: { base: "30px", lg: "50%" },
   p: "15px 0",
-  boxSize: "100px",
+  boxSize: { base: "80px", lg: "100px" },
   objectFit: "contain",
 };
 
 const tecnologyProps = {
   color: "var(--accent-100)",
   fontFamily: ["Helvetica Neue", "sans-serif"],
-  fontSize: "1.5rem",
-  letterSpacing: ".2rem",
+  fontSize: { base: "12px", md: "1.5rem" },
+  letterSpacing: { base: "2px", lg: ".2rem" },
   alignSelf: "center",
   lineHeight: "1",
 };
