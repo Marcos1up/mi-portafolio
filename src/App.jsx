@@ -1,6 +1,14 @@
 //importaciones externas
 import { useState } from "react";
-import { Box, Button, Flex, HStack, Link, VStack } from "@chakra-ui/react";
+import {
+  Box,
+  Button,
+  Flex,
+  HStack,
+  Image,
+  Link,
+  VStack,
+} from "@chakra-ui/react";
 
 //importar components
 import Hero from "./components/Hero";
@@ -9,7 +17,8 @@ import About from "./components/About";
 import Projects from "./components/Projects";
 import Skills from "./components/Skills";
 
-//componentes lazyload
+//importaciones estilizadas
+import profileImg from "./assets/images/avatar-profile.png";
 
 export default function App() {
   const cvLink =
@@ -31,6 +40,13 @@ export default function App() {
 
   return (
     <VStack className="app-container" {...appContainer}>
+      <Image
+        className="profile-image"
+        src={profileImg}
+        alt="Marco Soria"
+        {...imageProps}
+      ></Image>
+
       <Flex className="main-container" {...mainContainer}>
         <Flex className="hero-container" {...heroContainer}>
           <Hero />
@@ -43,7 +59,7 @@ export default function App() {
 
           <Flex className="content-render">
             <Flex {...contentRenderContainer}>{renderComponent()}</Flex>
-            <Flex {...contentResponsive}>
+            <Flex {...contentSm}>
               <About />
               <Skills />
               <Projects />
@@ -82,18 +98,34 @@ const appContainer = {
   justifyContent: "center",
   alignItems: "center",
   background: "var(--bg-100)",
+  overflow: "hidden",
+};
+
+const imageProps = {
+  position: "absolute",
+  top: "0.5%",
+  zIndex: "15",
+
+  bg: "var(--bg-200)",
+  width: { base: "120px", lg: "150px" },
+  height: { base: "120px", lg: "150px" },
+  borderRadius: "30px",
+  objectFit: "cover",
+  padding: "0.5rem",
+  boxShadow: "0px -10px 10px 0 rgba(0, 0, 0, 0.1)",
+  transition: "all 0.3s",
 };
 
 const mainContainer = {
   zIndex: "10",
   bg: "var(--bg-200)",
-  borderRadius: { base: "0", md: "30px" },
+  borderRadius: { base: "0", sm: "0", md: "30px" },
   boxShadow: "0 0 10px rgba(0, 0, 0, 0.1)",
-  p: { base: "1rem", md: "1.5rem" },
+  p: { base: "1.5rem 1rem 1rem 1rem", md: "2rem 1.5rem 1.5rem 1.5rem" },
   mt: { base: "4rem", md: "4rem" },
-  h: { base: "86%", md: "88%" },
+  h: { base: "88%", sm: "88%", md: "88%" },
   maxW: { base: "372px", sm: "570px" },
-  justifyContent: "center",
+  justifyContent: "space-between",
   alignItems: "center",
   flexDirection: "column",
   transition: "all 0.3s",
@@ -104,7 +136,7 @@ const heroContainer = {
   flexDirection: "column",
   justifyContent: "center",
   alignItems: "center",
-  mb: { base: "0", md: "1.5rem" },
+  mt: { base: "1.5rem", lg: "1.5rem" },
 };
 
 const contentContainer = {
@@ -118,7 +150,7 @@ const contentContainer = {
 };
 
 const navbarContainer = {
-  display: { base: "none", lg: "flex" },
+  display: { base: "none", md: "flex" },
   flexDirection: "column",
   justifyContent: "center",
   alignItems: "center",
@@ -126,7 +158,7 @@ const navbarContainer = {
 };
 
 const contentRenderContainer = {
-  display: { base: "none", lg: "flex" },
+  display: { base: "none", sm: "flex" },
 
   justifyContent: "flex-start",
   alignItems: "center",
@@ -135,7 +167,7 @@ const contentRenderContainer = {
   borderRadius: "0.5rem",
   boxShadow: "inset 0px 0px 10px 0px rgba(0, 0, 0, 0.1)",
   h: "100%",
-  maxH: { base: "378px", sm: "335px", md: "285px" },
+  maxH: { base: "auto", sm: "335px", md: "265px" },
   minH: "3rem",
   w: "100%",
   p: "1rem",
@@ -156,8 +188,8 @@ const contentRenderContainer = {
   },
 };
 
-const contentResponsive = {
-  display: { base: "flex", lg: "none" },
+const contentSm = {
+  display: { base: "flex", sm: "none" },
 
   justifyContent: "flex-start",
   alignItems: "center",
@@ -166,7 +198,7 @@ const contentResponsive = {
   borderRadius: "0.5rem",
   boxShadow: "inset 0px 0px 10px 0px rgba(0, 0, 0, 0.1)",
   h: "100%",
-  maxH: { base: "360px", sm: "335px", md: "265px" },
+  maxH: { base: "378px", sm: "335px", md: "265px" },
   minH: "3rem",
   w: "100%",
   p: "1rem",
@@ -188,7 +220,7 @@ const contentResponsive = {
 };
 
 const contactContainer = {
-  m: { base: ".5rem 0 .5rem 0", md: "0.5rem 0 1rem 0" },
+  m: { base: ".5rem 0 .5rem 0", md: "1rem 0 1rem 0" },
 };
 
 const contactButton = {
@@ -197,7 +229,7 @@ const contactButton = {
   fontSize: { base: "0.8rem", md: "1rem" },
   fontWeight: "600",
   border: "none",
-  w: { base: "120px", md: "150px" },
+  w: { base: "120px", md: "250px" },
   minW: "115px",
   minH: "3rem",
   padding: { base: "0.25rem 1rem", md: "0.5rem 2.5rem" },
@@ -226,8 +258,8 @@ const shapeCircle = {
 
 const shapeSquare = {
   position: "absolute",
-  top: "30%",
-  right: { base: "-7%", md: "10%" },
+  top: { base: "20%", md: "30%" },
+  right: { base: "-50%", md: "10%" },
   transition: "all 0.3s",
   zIndex: "1",
   transform: "translate(-50%, -50%) rotate(45deg)", //centrado y rotación
@@ -241,7 +273,7 @@ const shapeSquare = {
 };
 
 const shapeTriangle = {
-  top: { base: "5%", md: "11%" },
+  top: { base: "-2%", md: "11%" },
   left: { base: "5%", md: "10%" },
   transition: "all 0.3s",
   zIndex: "1",

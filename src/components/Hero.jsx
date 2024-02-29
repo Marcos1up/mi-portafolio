@@ -6,7 +6,6 @@ import {
   HStack,
   Heading,
   Icon,
-  Image,
   Link,
   Text,
   VStack,
@@ -14,7 +13,6 @@ import {
 } from "@chakra-ui/react";
 
 //importaciones estilizadas
-import profileImg from "../assets/images/avatar-profile.png";
 import {
   FaLinkedin,
   FaGithub,
@@ -62,13 +60,6 @@ export default function Hero() {
 
   return (
     <VStack className="hero-container" {...heroContainer}>
-      <Image
-        className="profile-image"
-        src={profileImg}
-        alt="Marco Soria"
-        {...imageProps}
-      ></Image>
-
       <Box className="title-container">
         <Heading {...headingProps}>Marcos Soria</Heading>
         <Text {...textProps}>BackEnd/FullStack Developer</Text>
@@ -111,19 +102,6 @@ const heroContainer = {
   alignItems: "center",
 };
 
-const imageProps = {
-  position: "absolute",
-  top: "0.5%",
-
-  bg: "var(--bg-200)",
-  width: { base: "120px", lg: "150px" },
-  height: { base: "120px", lg: "150px" },
-  borderRadius: "30px",
-  objectFit: "cover",
-  padding: "0.5rem",
-  boxShadow: "0px -10px 10px 0 rgba(0, 0, 0, 0.1)",
-};
-
 const headingProps = {
   color: "var(--accent-100)",
   fontFamily: ["Helvetica Neue", "sans-serif"],
@@ -131,7 +109,6 @@ const headingProps = {
   letterSpacing: ".2rem",
   textAlign: "center",
   lineHeight: "1",
-  mt: { base: "3rem", lg: "5rem" },
 };
 
 const textProps = {
